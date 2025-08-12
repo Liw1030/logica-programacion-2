@@ -1,0 +1,15 @@
+{
+  "name": "conversiontemperaturas",
+  "version": "1.0.0",
+  "main": "convertidor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
