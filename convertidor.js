@@ -20,20 +20,33 @@
 //     console.log('La temperatura en °K es:', gradosK.toFixed(2));
 // }
 
-const convertir = document.getElementById('conversor');
+function convertirTemperatura(celsius) {
+    return {
+        fahrenheit: (celsius * 9 / 5) + 32,
+        kelvin: celsius + 273.15
+    };
+}
 
-convertir.addEventListener('click', function () {
+function mostrarEnPantalla(c, f, k) {
+    const resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.innerHTML = `
+    <h5><strong>Resultado:</strong></h5>
+    <p> <strong>Centígrados:</strong> ${c.toFixed(1)} °C</p>
+    <p> <strong>Fahrenheit:</strong> ${f.toFixed(1)} °F</p>
+    <p> <strong>Kelvin:</strong> ${k.toFixed(2)} °K</p>
+    `;
+}
+
+document.getElementById('conversor').addEventListener('click', () => {
     const input = document.getElementById('tempInput');
     const tempCelcius = parseFloat(input.value);
 
-    if (isNaN(tempCelcius)) {
-        console.error('❌ Error: El valor ingresado debe ser un número.');
-        alert('⚠️ Por favor ingresa un número válido en °C.');
-    } else {
-        const gradosF = (tempCelcius * 9 / 5) + 32;
-        const gradosK = tempCelcius + 273.15;
+    const resultadoDiv = document.getElementById('resultado');
 
-        console.log(`🌡️ °F: ${gradosF.toFixed(1)} | °K: ${gradosK.toFixed(2)}`);
-        alert(`✅ Conversión completa:\n°F: ${gradosF.toFixed(1)}\n°K: ${gradosK.toFixed(2)}`);
+    if (isNaN(tempCelcius)) {
+        resultadoDiv.innerHTML = `<p style="color: red;">⚠️ Por favor ingresa un número válido.</p>`;
+    } else {
+        const { fahrenheit, kelvin } = convertirTemperatura(tempCelcius);
+        mostrarEnPantalla(tempCelcius, fahrenheit, kelvin);
     }
 });

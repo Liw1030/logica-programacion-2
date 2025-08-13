@@ -1,0 +1,31 @@
+body {
+    background-color: #111;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.card.text-center.shadow-lg {
+    max-width: 600px;
+    align-self: center;
+}
+
+.btn.btn-outline-info {
+    font-weight: bold;
+    border: 1px solid rgb(132, 64, 163);
+    color: rgb(132, 64, 163);
+}
+
+.btn.btn-outline-info:hover {
+    font-weight: bold;
+    background-color: rgb(132, 64, 163);
+    color: rgb(225, 166, 253);
+    border: 2px solid rgb(91, 35, 117);
+}
+
+input#tempInput {
+    border: 2px solid rgba(146, 146, 146, 0.678);
+}
+
+input#tempInput:focus {
+    box-shadow: 0 0 8px #8420a3;
+    border-color: #8420a3;
+}
